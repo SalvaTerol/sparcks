@@ -57,13 +57,14 @@
             </div>
         </div>
         <div id="days" class="mb-6">
-            @if($days)
+
                 <ul role="list" class="divide-y divide-gray-100">
+                    @if($days)
                     @foreach($days as $key => $day)
-                        <livewire:day-availability :day="$key" :array="$day" :status="$status" @check="checkHours($event.detail.day)" :key="$key . '-' . $status['restaurant'] . '-p' . $status['persons']"/>
+                        <livewire:day-availability :day="$key" :array="$day" :status="$status" @check="checkHours($event.detail.day)" :key="base64_encode($key . $rand)"/>
                     @endforeach
+                    @endif
                 </ul>
-            @endif
         </div>
 
     </form>

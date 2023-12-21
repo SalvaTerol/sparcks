@@ -41,6 +41,7 @@ class Booking extends Component
     public $response = null;
     public $days = null;
     public $showHours = false;
+    public $rand;
     public $hours;
     #[Validate]
     public $status = [
@@ -80,6 +81,7 @@ class Booking extends Component
             $days = $this->response['days'];
         }
         $this->days = collect($days)->take(21);
+        $this->rand = rand(1,999);
     }
     public function getDays($currentDate = null)
     {
