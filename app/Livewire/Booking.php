@@ -77,8 +77,8 @@ class Booking extends Component
             $respondeNextMonth = $this->getDays(Carbon::now()->addMonth()->startOfMonth()->format('Y-m-d'));
             $days = $days + $respondeNextMonth['days'];
         }else{
-            $this->getDays();
-            $days = $this->response['days'];
+            $response = $this->getDays();
+            $days = $response['days'];
         }
         $this->days = collect($days)->take(21);
         $this->rand = rand(1,999);
